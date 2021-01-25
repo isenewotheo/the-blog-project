@@ -1,0 +1,20 @@
+{
+  "name": "dares-blog",
+  "version": "1.0.0",
+  "description": "a blog that an admin can make a post, and a regular user can read posts",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Isenewo Oludare Theophilus",
+  "license": "ISC",
+  "devDependencies": {
+    "express-session": "^1.17.1"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "joi": "^17.3.0",
+    "mongoose": "^5.11.11",
+    "bcrypt": "^5.0.0"
+  }
+}
