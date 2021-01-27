@@ -12,9 +12,9 @@ router.get('/', async (req, res) => {
     res.json({users});
 });
 
-function findUser(email) {
+function findUserByEmail(email) {
     try {
-        if(db.getUser(email) != null){
+        if(db.getUserByEmail(email) != null){
             return true;
         }else {
             return false
@@ -25,7 +25,7 @@ function findUser(email) {
 }
 // Add new user
 router.post('/', validateSignUp, async (req, res) => {
-    if (findUser(req.user.email)){
+    if (findUserByEmail(req.user.email)){
         return res.json({message: `user with the email: ${req.user.email} already exist`});
     }
     let user = await db.addUser(req.user);
@@ -35,16 +35,14 @@ router.post('/', validateSignUp, async (req, res) => {
 
 // Get a user by username
 router.get('/search', async (req, res) => {
-    console.log(req.query.username)
-    let user = await db.getUserByUserName(req.query.username);
-    if (user === null){
-        return res.status(403).json({user: null,message: "user does not exist"});
+    let users = await db.getUserByUserName(req.query.username);
+    if (users === null){
+        return res.status(403).json({users: null,message: "user does not exist"});
     }
-    res.status(200).json({user});
+    res.status(200).json({users});
 });
 // Get a user by id
 router.get('/:id', async (req, res) => {
-    console.log(req.params.id)
     let user = await db.getUserByID(req.params.id);
     if (user === null){
         return res.status(403).json({user: null,message: "user does not exist"});

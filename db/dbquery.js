@@ -14,6 +14,9 @@ const db = mongoose.connection;
 db.on('error', (error) => console.log('there was an error'));
 db.once('open', () => console.log('successfully connected to db'));
 
+
+
+
 class QueryUsers {
     // get user with a username
     async getUserByUserName(userName){
@@ -39,7 +42,7 @@ class QueryUsers {
             let user = await users.findOne({_id: id});
             return user
         } catch (error) {
-            return error
+            return null;
         }
     }
 

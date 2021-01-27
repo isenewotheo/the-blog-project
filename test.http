@@ -4,4 +4,4 @@ GET http://localhost:8080/api/users HTTP/1.1
 GET http://localhost:8080/api/users/search?username=myname HTTP/1.1
 
 ###
-GET http://localhost:8080/api/users/6 HTTP/1.1
+GET http://localhost:8080/api/users/601206fa043d4917ac487c7a HTTP/1.1
