@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test</title>
+</head>
+<body>
+    <script>
+        const headers = new Headers({
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        });
+        let body = JSON.stringify({
+            name: 'dare',
+            userName: 'myname',
+            email: 'i@email.com',
+            password: "12345"
+        });
+        var url1 = 'http://localhost:8080/api/users';
+        var url2 = 'http://localhost:8080/api/users/3';
+        async function gett(url){
+            let response = await fetch(url);
+            console.log(response);
+            let result = await response.json();
+            console.log(result)
+        } 
+            let request = new Request(url1, {
+                method: 'POST',
+                headers,
+                body: JSON.stringify({
+                    name: 'dare',
+                    userName: 'myname',
+                    email: 'i@email.com',
+                    password: "12345"
+                })
+            });
+            fetch(request)
+            .then(res => res.json())
+            .then(data => console.log(data))
+
+        gett(url1);
+        // post(url1);
+    </script>
+</body>
+</html>

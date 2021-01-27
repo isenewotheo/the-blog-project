@@ -9,7 +9,7 @@ app.use('/api', api);
 app.use('/public', express.static(path.join(__dirname, './public')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views/index.htm'));
+    res.sendFile(path.join(__dirname, './test.html'));
 });
 app.get('/about', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/about.htm'));
