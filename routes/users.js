@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bc = require('bcrypt');
 const {QueryUsers} = require('../db/dbquery')
 const db = new QueryUsers();
 const {validateSignUp} = require('../src/validate')
@@ -12,24 +13,24 @@ router.get('/', async (req, res) => {
     res.json({users});
 });
 
-function findUserByEmail(email) {
-    try {
-        if(db.getUserByEmail(email) != null){
-            return true;
-        }else {
-            return false
-        }
-    } catch (err) {
-        console.log(err)
-    }
-}
 // Add new user
+// validateSignUp checks if the sign up detail are correct
 router.post('/', validateSignUp, async (req, res) => {
-    if (findUserByEmail(req.user.email)){
+    //check if user with the email already exist
+    if (await db.getUserByEmail(req.user.email) !== null){
         return res.json({message: `user with the email: ${req.user.email} already exist`});
     }
-    let user = await db.addUser(req.user);
-     res.status(201).json({message: 'Successful'});
+
+
+    // call bcrypt to encrypt password
+    user = req.user
+    let hashedPassword = bc.hashSync(user.password, 10);
+    user.password = hashedPassword;
+
+
+    // add user to dataBase and send a successful message
+    let newUser = await db.addUser(user);
+    res.status(201).json({message: 'Successful'});
 });
 
 
@@ -55,7 +56,13 @@ router.patch('/:id', (req, res) => {
 });
 
 // Remove a user
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
+    let userExist = await db.getUserByID(req.params.id);
+    if (userExist === null){
+        return res.status(400).json({message: "user does not exist"});
+    }
+    let result = await db.deleteUser(req.params.id);
+    res.status(202).json(result);
 });
 
 

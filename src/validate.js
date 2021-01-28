@@ -9,7 +9,7 @@ async function validateSignUp(req, res, next) {
         next()
     } catch (error) {
         console.log(error)
-        res.json('message: error.message');
+        res.json('message: ' + error.message);
     }
 
 

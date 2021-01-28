@@ -14,8 +14,10 @@ const db = mongoose.connection;
 db.on('error', (error) => console.log('there was an error'));
 db.once('open', () => console.log('successfully connected to db'));
 
-
-
+// (async function() {
+//     let q = await users.find({name: {$regex: /t/}}).limit(5).skip(0)
+//     console.log(q)
+// })()
 
 class QueryUsers {
     // get user with a username
@@ -68,9 +70,12 @@ class QueryUsers {
             const newUser = await user.save();
             return newUser;
         } catch (error) {
-            console.log(error);
             return 'error';
         }
+    }
+    async deleteUser(id){
+        let result = await users.deleteOne({_id: id});
+        return result;
     }
     
 }
