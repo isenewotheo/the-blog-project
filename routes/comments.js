@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const dbQuery = require('../db/dbquery')
+const dbQuery = require('../db/usersQuery')
 
 // Get all users
 router.get('/users', (req, res) => {

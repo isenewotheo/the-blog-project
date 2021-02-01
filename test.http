@@ -1,20 +1,46 @@
 GET http://localhost:8080/api/users HTTP/1.1
 
 ###
-GET http://localhost:8080/api/users/search?username=dare HTTP/1.1
+GET http://localhost:8080/api/users/search?username=lake HTTP/1.1
 
 ###
-GET http://localhost:8080/api/users/60133e033c73a20c9808d6ea HTTP/1.1
+GET http://localhost:8080/api/users/601341a2d5aab409a0da9b1c HTTP/1.1
+
 ###
-DELETE  http://localhost:8080/api/users/601340cf74f13706200bc41c HTTP/1.1
+DELETE  http://localhost:8080/api/users/6013d6e81436bf0994d68d29 HTTP/1.1
+
+###
+PATCH  http://localhost:8080/api/users/updatepassword/6013d6e81436bf0994d68d29 HTTP/1.1
+Content-Type: application/json
+
+{
+    "password": "lakfd"
+}
+
+
+###
+PATCH  http://localhost:8080/api/users/updateemail/6013d6e81436bf0994d68d29 HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "lake@mail.com"
+}
+
+
+###
+PATCH  http://localhost:8080/api/users/updateusername/6013d6e81436bf0994d68d29 HTTP/1.1
+Content-Type: application/json
+
+{
+    "userName": "lake"
+}
 
 ###
 POST http://localhost:8080/api/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "userName": "lake",
-    "name": "vince",
-    "email": "vince@lake.com",
+    "userName": "richie",
+    "email": "richie@mail.com",
     "password": "dkdjf"
 }

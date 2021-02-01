@@ -59,9 +59,8 @@ class QueryUsers {
     }
     // adds a new user to the database
     async addUser(userDetail){
-        let {name, userName, password, email} = userDetail
+        let {userName, password, email} = userDetail
         let user = new users({
-            name,
             userName,
             password,
             email
@@ -73,11 +72,53 @@ class QueryUsers {
             return 'error';
         }
     }
+    // Delete a user
     async deleteUser(id){
         let result = await users.deleteOne({_id: id});
         return result;
     }
-    
+
+
+    // Update user details
+    async updateUserEmail(id, value){
+        try {
+            let result = users.updateOne({_id: id}, {
+                $set: {
+                    email: value
+                }
+            });
+            return result;
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    }
+    async updateUserPassword(id, value){
+        try {
+            let result = users.updateOne({_id: id}, {
+                $set: {
+                    password: value
+                }
+            });
+            return result;
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    }
+    async updateUserUserName(id, value){
+        try {
+            let result = users.updateOne({_id: id}, {
+                $set: {
+                    userName: value
+                }
+            });
+            return result;
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    }
 }
 class QueryPosts {
 }
