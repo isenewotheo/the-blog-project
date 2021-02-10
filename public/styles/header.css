@@ -8,6 +8,8 @@ header {
     padding-top: 20px;
     position: fixed;
     box-sizing: border-box;
+    z-index: 2;
+
 }
 .nav {
     display: flex;
@@ -15,12 +17,12 @@ header {
     margin: auto;
     justify-content: space-between;
     list-style: none;
-    text-transform: uppercase;
 }
 .logo {
     width: 90px;
 }
 .search-post {
+    position: relative;
     width: 360px;
     height: 30px;
 }
@@ -32,14 +34,14 @@ header {
     border-radius: 50px 0px 0px 50px;
     padding-left: 8px;
 }
-#clear-search {
+#clear-search-btn {
     background-color: white;
     color: black;
     margin-left: -10px;
     padding-left: 8px;
     border-radius: 0%;
 }
-#clear-search:hover {
+#clear-search-btn:hover {
     background-color: gray;
     color: white;
     transition: all 300ms;
@@ -58,10 +60,35 @@ header {
     background-color: white;
     color: black;
     border-radius: 0px 50px 50px 0px;
-
-
     height: 30px;
 }
+#search-list {
+    top: 40px;
+    left: 15px;
+    width: 200px;
+    position: absolute;
+    display: none;
+    min-height: 100px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    max-height: 250px;
+    background-color: white;
+    overflow-y: scroll;
+    padding: 10px;
+    scrollbar-width: none;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px rgb(80, 80, 80);
+}
+#search-list::-webkit-scrollbar{
+    width: 0px;
+}
+.title-search {
+    padding: 10px 0px;
+    word-wrap: break-word;
+    border-bottom: 0.1px solid gray;
+}
+
 .auth {
     width: 200px;
 }

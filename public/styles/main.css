@@ -1,0 +1,68 @@
+.hero {
+    max-width: 900px;
+    position: relative;
+    margin-left: 300px;
+    margin-top: 90px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    min-height: 30px;
+    box-shadow: 0px 0px 5px rgb(167, 167, 167);
+}
+
+
+
+/* main ////////////////////////////// */
+main {
+    position: relative;
+    top: 30px;
+    max-width: 900px;
+    margin:0px 0px 0px auto;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 10px;
+    min-height: calc(100vh - 80px);
+}
+.content {
+    position: relative;
+    margin: auto;
+    max-width: 700px;
+}
+.container {
+    background-color: white;
+    width: 100%;
+    min-height: 30px;
+    padding: 5px;
+    margin: 20px 0px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    box-shadow: 0px 0px 5px rgb(167, 167, 167);
+}
+.post {
+    padding: 10px 10px;
+    position: relative;
+}
+.post-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.post-tag {
+    background-color: var(--blue);
+    width: auto;
+    height: auto;
+    padding: 3px 8px;
+    color: white;
+}
+.post-punch-line {
+    padding: 8px 0px;
+}
+.read-more a {
+    position: absolute;
+    color: var(--blue);
+    font-weight: 500;
+    cursor: pointer;
+    text-align: right;
+    width: 80px;
+    right: 10px;
+    bottom: 5px;
+}
