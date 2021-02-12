@@ -17,7 +17,43 @@
 .side-auth {
     display: none;
 }
-
+.launch-side-nav-wrapper {
+    display: none;
+    margin: 0px -15px;
+}
+.launch-side-nav {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary);
+    color: white;
+    margin: -13px -15px;
+    display: block;
+    padding: 10px;
+    font-size: 1.4rem;
+    font-weight: bolder;
+    box-sizing: border-box;
+    /* display: none; */
+    border-radius: 5px;
+    border: none;
+}
 .close-side-nav {
-    
+    background-color: transparent;
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    left: 250px;
+    top: 70px;
+}
+.links {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-around;
+    list-style-type: none;
+}
+.link a{
+    font-size: 1rem;
+    text-transform: capitalize;
+    color: white;
+    text-decoration: none;
 }

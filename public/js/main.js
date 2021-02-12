@@ -112,15 +112,15 @@ function searchPosts(searchText) {
 }
 
 
+// launch side nav 
+let sideNav = document.getElementsByClassName('side-nav')[0];
+let launchSideNav = document.getElementsByClassName('launch-side-nav')[0];
+let closeSideNav = document.getElementsByClassName('close-side-nav')[0];
 
-// document.addEventListener('click', e => {
-//     if (!e.target.closest('#search-panel')){
-//         // if it open
-//         if (searchPanel.style.top === '0px') {
-//             console.log('close')
-//             searchPanel.style.top = '-80px';
-//         } else {
-//             // it close do nothing
-//         }
-//     }
-// });
+launchSideNav.addEventListener('click', e => {
+    sideNav.style.left = '0px';
+});
+
+closeSideNav.addEventListener('click', e => {
+    sideNav.style.left = '-100%';
+});

@@ -15,11 +15,15 @@
 </head>
 <body>
     <header>
+
+
         <div id="search-panel">
             <div class="search-post">
                 <input type="text" name="search-input" placeholder="Search for a post" id="search-input">
                 <button id="clear-search-btn">X</button>
-                <button id="search-btn">search</button>
+                <button id="search-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+                </button>
                 <div id="search-list">
                     <div class="posts-search-list">
                         <!-- loader shows before result get back -->
@@ -44,6 +48,8 @@
             </div>
 
         </div>
+
+
         <!-- nav ///////////////////////////// -->
         <ul class="nav">
             <li class="launch-side-nav-wrapper">
@@ -51,7 +57,7 @@
             </li>
             <li class="logo">Dare Dev Blog</li>
             <li class="launch-search-panel">
-                <button>s</button>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
             </li>
             <li class="auth top-auth">
                 <button class="nav-btn launch-modal" data-targetModal="login-modal">Login</button>
@@ -94,8 +100,22 @@
         <div class="auth side-auth">
             <button class="nav-btn launch-modal" data-targetModal="login-modal">Login</button>
             <button class="nav-btn launch-modal" data-targetModal="signup-modal">Signup</button>
+            <button class="close-side-nav">x</button>
         </div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos temporibus eius blanditiis commodi placeat quae? Perspiciatis eaque corporis, ullam id nobis voluptas magni tenetur error. Dolorum cupiditate magni saepe possimus.
+        <ul class="links">
+            <li class="link">
+                <a href="#">home</a>
+            </li>
+            <li class="link">
+                <a href="#">posts</a>
+            </li>
+            <li class="link">
+                <a href="#">tags</a>
+            </li>
+            <li class="link">
+                <a href="#">about</a>
+            </li>
+        </ul>
     </div>
 
 
