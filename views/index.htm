@@ -5,20 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dare Blog</title>
-    <link rel="stylesheet" href="/public/styles/global.css">
     <link rel="stylesheet" href="/public/styles/header.css">
     <link rel="stylesheet" href="/public/styles/side-nav.css">
     <link rel="stylesheet" href="/public/styles/main.css">
     <link rel="stylesheet" href="/public/styles/footer.css">
+    <link rel="stylesheet" href="/public/styles/global.css">
     <style>
     </style>
 </head>
 <body>
     <header>
-        <ul class="nav">
-            <!-- <li class="logo nav-component">logo</li> -->
-            <li class="search-post nav-component">
-                <input type="text" name="search" placeholder="Search for a post" id="search">
+        <div id="search-panel">
+            <div class="search-post">
+                <input type="text" name="search-input" placeholder="Search for a post" id="search-input">
                 <button id="clear-search-btn">X</button>
                 <button id="search-btn">search</button>
                 <div id="search-list">
@@ -38,14 +37,32 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div id="close-search-panel">
+                <div class="up-arrow"></div>
+            </div>
+
+        </div>
+        <!-- nav ///////////////////////////// -->
+        <ul class="nav">
+            <li class="launch-side-nav-wrapper">
+                <button class="launch-side-nav">&#9776</button>
             </li>
-            <li class="auth nav-component">
+            <li class="logo">Dare Dev Blog</li>
+            <li class="launch-search-panel">
+                <button>s</button>
+            </li>
+            <li class="auth top-auth">
                 <button class="nav-btn launch-modal" data-targetModal="login-modal">Login</button>
                 <button class="nav-btn launch-modal" data-targetModal="signup-modal">Signup</button>
             </li>
         </ul>
     </header>
+
+    <!-- modal ///////////////////////////////// -->
     <div class="modal">
+<!--                  signup                        -->
         <div id="signup-modal" class="modal-content auth-form signup">
             <div class="modal-header">Signup</div>
             <button class="close-modal">X</button>
@@ -74,6 +91,10 @@
         </div>
     </div>
     <div class="side-nav">
+        <div class="auth side-auth">
+            <button class="nav-btn launch-modal" data-targetModal="login-modal">Login</button>
+            <button class="nav-btn launch-modal" data-targetModal="signup-modal">Signup</button>
+        </div>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos temporibus eius blanditiis commodi placeat quae? Perspiciatis eaque corporis, ullam id nobis voluptas magni tenetur error. Dolorum cupiditate magni saepe possimus.
     </div>
 
@@ -84,6 +105,7 @@
 
     <main>
         <div class="content">
+            
             <div class="container">
                 <div class="post">
                     <div class="post-title">

@@ -1,8 +1,7 @@
 .hero {
-    max-width: 900px;
+    width: auto;
     position: relative;
-    margin-left: 300px;
-    margin-top: 90px;
+    margin: 90px 5px  0px  260px;
     padding: 5px;
     box-sizing: border-box;
     border-radius: 2px;
@@ -15,9 +14,9 @@
 /* main ////////////////////////////// */
 main {
     position: relative;
-    top: 30px;
-    max-width: 900px;
-    margin:0px 0px 0px auto;
+    top: 5px;
+    width: auto;
+    margin-left: 250px;
     background-color: white;
     box-sizing: border-box;
     padding: 10px;
@@ -66,3 +65,4 @@ main {
     right: 10px;
     bottom: 5px;
 }
+

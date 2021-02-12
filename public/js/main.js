@@ -33,7 +33,6 @@ class Modal {
 
 
 let modalElement = document.getElementsByClassName('modal')[0];
-
 let modal = new Modal(modalElement);
 modal.init();
 
@@ -53,31 +52,51 @@ document.querySelectorAll('.close-modal').forEach(ele => {
         // window.history.go(-1);
     });
 });
+// OR /////
+modalElement.addEventListener('click', e => {
+    if (!e.target.closest('.modal-content')) {
+        modal.init();
+    }
+})
+
 
 
 
 // The search part //////////////////////////////
-let search = document.querySelector('#search');
+let searchPanel = document.querySelector('#search-panel');
+
+let searchInput = document.querySelector('#search-input');
 let searchBtn = document.querySelector('#search-btn');
 let searchList = document.querySelector('#search-list');
 let searchListLoader = document.querySelectorAll('#search-list .loader')[0];
 searchListLoader.style.display = 'none';
 searchList.style.display = 'none'; // turn searchlist display off
 
+
+// launch search panel 
+document.querySelectorAll('.launch-search-panel')[0].addEventListener('click', () => {
+    searchPanel.style.top = '0px';
+});
+
+document.querySelectorAll('#close-search-panel')[0].addEventListener('click', () => {
+    searchPanel.style.top = '-80px';
+});
+
+
 // clearing the search field
 // let clearSearchBtn = 
 document.querySelector('#clear-search-btn').addEventListener('click', () => {
-    search.value = '';
+    searchInput.value = '';
     // then set the searchlist display to none
     searchList.style.display = "none";
 });
 // searching 
 searchBtn.addEventListener('click', () => {
-    if (search.value !== '') {
+    if (searchInput.value !== '') {
         searchList.style.display = 'block';
         searchList.focus();
         searchListLoader.style.display = 'block';
-        searchPosts(search.value);
+        searchPosts(searchInput.value);
     }
 });
 searchList.addEventListener('blur', () => {
@@ -94,4 +113,14 @@ function searchPosts(searchText) {
 
 
 
-
+// document.addEventListener('click', e => {
+//     if (!e.target.closest('#search-panel')){
+//         // if it open
+//         if (searchPanel.style.top === '0px') {
+//             console.log('close')
+//             searchPanel.style.top = '-80px';
+//         } else {
+//             // it close do nothing
+//         }
+//     }
+// });
