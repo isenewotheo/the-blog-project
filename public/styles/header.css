@@ -1,15 +1,18 @@
+:root {
+    --header-height: 65px;
+}
+
 header {
     width: 100%;
-    height: 80px;
+    height: var(--header-height);
     background-color: var(--primary);
     top: 0%;
     left: 0px;
     margin-top: 0px;
-    padding-top: 20px;
+    padding-top: 15px;
     position: fixed;
     box-sizing: border-box;
     z-index: 2;
-
 }
 .nav {
     display: flex;
@@ -25,7 +28,7 @@ header {
 }
 #search-panel {
     background-color: var(--primary);
-    height: 80px;
+    height: var(--header-height);
     width: 100%;
     position: fixed;
     top: -80px;
@@ -34,13 +37,19 @@ header {
     box-sizing: border-box;
     z-index: 1;
 }
+.search-post {
+    position: relative;
+    width: 265px;
+    height: 30px;
+    margin: 10px auto;
+}
 .up-arrow {
     border:solid white;
     border-width: 0px 3px 3px 0px;
     display: block;
     width: 10px;
     height: 10px;
-    margin: 5px auto;
+    margin: 12px auto;
     transform: rotate(-135deg);
 }
 div#close-search-panel {
@@ -53,12 +62,6 @@ div#close-search-panel {
     cursor: pointer;
 }
 
-.search-post {
-    position: relative;
-    width: 265px;
-    height: 30px;
-    margin: 20px auto;
-}
 #search-input {
     height: 30px;
     box-sizing: border-box;

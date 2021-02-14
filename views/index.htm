@@ -50,7 +50,7 @@
         </div>
 
 
-        <!-- nav ///////////////////////////// -->
+<!--             nav /////////////              // -->
         <ul class="nav">
             <li class="launch-side-nav-wrapper">
                 <button class="launch-side-nav">&#9776</button>
@@ -66,36 +66,39 @@
         </ul>
     </header>
 
-    <!-- modal ///////////////////////////////// -->
+<!--                    modal                         -->
     <div class="modal">
-<!--                  signup                        -->
-        <div id="signup-modal" class="modal-content auth-form signup">
-            <div class="modal-header">Signup</div>
-            <button class="close-modal">X</button>
-            <form id="signup-form">
-                <label for="email">Email</label>
-                <input type="text" class="email" name="email" >
-                <label for="username">username</label>
-                <input type="text" class="username" name="username" >
-                <label for="password">password</label>
-                <input type="password" class="password" name="password" >
-                <button id="signup-btn" class="submit" type="submit">Signup</button>
-            </form>
-        </div>
-
-<!--                     login                        -->
-        <div id="login-modal" class="modal-content auth-form login">
-            <div class="modal-header">Login</div>
-            <button class="close-modal">X</button>
-            <form id="login-form">
-                <label for="email">Email</label>
-                <input type="text" class="email" name="email">
-                <label for="password">password</label>
-                <input type="password" class="password" name="password">
-                <button id="login-btn" class="submit" type="submit">Login</button>
-            </form>
+<!--  ---------       signup                        -->
+        <div class="modal-content-wrapper">
+            <div id="signup-modal" class="modal-content auth-form signup">
+                <div class="modal-header">Signup</div>
+                <button class="close-modal">X</button>
+                <form id="signup-form">
+                    <label for="email">Email</label>
+                    <input type="text" class="email" name="email" >
+                    <label for="username">username</label>
+                    <input type="text" class="username" name="username" >
+                    <label for="password">password</label>
+                    <input type="password" class="password" name="password" >
+                    <button id="signup-btn" class="submit" type="submit">Signup</button>
+                </form>
+            </div>
+    
+    <!--                     login                        -->
+            <div id="login-modal" class="modal-content auth-form login">
+                <div class="modal-header">Login</div>
+                <button class="close-modal">X</button>
+                <form id="login-form">
+                    <label for="email">Email</label>
+                    <input type="text" class="email" name="email">
+                    <label for="password">password</label>
+                    <input type="password" class="password" name="password">
+                    <button id="login-btn" class="submit" type="submit">Login</button>
+                </form>
+            </div>
         </div>
     </div>
+<!--  --------------- side nav --------------- -->
     <div class="side-nav">
         <div class="auth side-auth">
             <button class="nav-btn launch-modal" data-targetModal="login-modal">Login</button>
@@ -103,7 +106,7 @@
             <button class="close-side-nav">x</button>
         </div>
         <ul class="links">
-            <li class="link">
+            <li class="link current">
                 <a href="#">home</a>
             </li>
             <li class="link">

@@ -4,14 +4,15 @@
 // if it exist launch modal
 // else do nothing
 class Modal {
-    constructor(modalElement){
+    constructor(modalElement, targetElements){
         this.modalElement = modalElement
+        this.targetElements = targetElements;
     }
     // this initializes the modal by setting it display and it 
     // children components to "none"
     init(){
         this.modalElement.style.display = "none";
-        let modalChildren = Array(...this.modalElement.children);
+        let modalChildren = Array(...this.targetElements.children);
         modalChildren.forEach(m => {
             m.style.display = 'none';
         });
@@ -20,7 +21,7 @@ class Modal {
     // converts it to an array 
     // then checks if there is a modal with the id
     launchModal(target){
-        let modalChildren = Array(...this.modalElement.children);
+        let modalChildren = Array(...this.targetElements.children);
         modalChildren.forEach((m, i) => {
             if(m.id == target){
                 // window.history.pushState({login: 1}, '', window.location + '/#login');
@@ -33,7 +34,8 @@ class Modal {
 
 
 let modalElement = document.getElementsByClassName('modal')[0];
-let modal = new Modal(modalElement);
+let modalTargetElement = document.getElementsByClassName('modal-content-wrapper')[0];
+let modal = new Modal(modalElement, modalTargetElement);
 modal.init();
 
 
@@ -124,3 +126,31 @@ launchSideNav.addEventListener('click', e => {
 closeSideNav.addEventListener('click', e => {
     sideNav.style.left = '-100%';
 });
+
+
+// document events /////////////////////////////
+document.addEventListener('scroll', e => {
+    // this is for the searchpanel to disappear on scroll
+    if (searchPanel.style.top === '0px'){
+        searchPanel.style.top = '-80px';
+        searchList.style.display = 'none';
+    }
+})
+
+
+
+
+// window events //////////////////////////////////////
+
+// am adding this event because if the side nav is closed on the
+// small screen and the screen is later changed to large screen 
+// the side nav will still be hidden on the left
+window.addEventListener('resize', e => {
+    if(window.innerWidth >= 700 ){
+        if (sideNav.style.left !== '0px') {
+            sideNav.style.left = '0px';
+        }
+    }else {
+        sideNav.style.left = '-100%';
+    }
+})

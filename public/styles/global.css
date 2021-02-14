@@ -1,5 +1,6 @@
 :root {
     --primary: rgb(49, 49, 49);
+    --light-primary: rgb(53, 54, 54);
     --secondary: rgb(236, 236, 236);
     --red: rgb(255, 35, 35);
     --blue: rgb(30, 30, 253);
@@ -34,7 +35,7 @@ button {
 
 /* //////////////////////////modal ///////// */
 .modal {
-    position: absolute;
+    position: fixed;
     top: 0%;
     left: 0px;
     width: 100%;
@@ -44,9 +45,17 @@ button {
     display: none;
     background-color: rgba(0, 0, 0, 0.247);
 }
+.modal-content-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .modal-content {
     position: relative;
-    margin: 100px auto;
+    /* margin: 100px auto; */
     z-index: 4;
     background-color: white;
     box-sizing: border-box;
@@ -183,15 +192,13 @@ button {
 @media (max-width: 900px) {
     .side-nav {
         width: 200px;
+        left: 0px;
     }
     main, .hero {
         margin-left: 205px;
     }
 }
 @media (max-width: 700px) {
-    /* main {
-        max-width: ;
-    } */
     .side-nav {
         left: -100%;
         width: 300px;
