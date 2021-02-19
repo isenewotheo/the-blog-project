@@ -7,7 +7,6 @@
     <title>Dare Blog</title>
     <link rel="stylesheet" href="/public/styles/header.css">
     <link rel="stylesheet" href="/public/styles/side-nav.css">
-    <link rel="stylesheet" href="/public/styles/main.css">
     <link rel="stylesheet" href="/public/styles/footer.css">
     <link rel="stylesheet" href="/public/styles/global.css">
     <style>
@@ -15,8 +14,9 @@
 </head>
 <body>
     <header>
-
-
+        
+        
+<!--             search panel///////              // -->
         <div id="search-panel">
             <div class="search-post">
                 <input type="text" name="search-input" placeholder="Search for a post" id="search-input">
@@ -26,7 +26,7 @@
                 </button>
                 <div id="search-list">
                     <div class="posts-search-list">
-                        <!-- loader shows before result get back -->
+<!--             loader shows before result get back -->
                         <div class="loader">
                             <ul>
                                 <li class="one"></li>
@@ -46,7 +46,7 @@
             <div id="close-search-panel">
                 <div class="up-arrow"></div>
             </div>
-
+            
         </div>
 
 
@@ -64,6 +64,8 @@
                 <button class="nav-btn launch-modal" data-targetModal="signup-modal">Signup</button>
             </li>
         </ul>
+
+
     </header>
 
 <!--                    modal                         -->
@@ -106,10 +108,10 @@
             <button class="close-side-nav">x</button>
         </div>
         <ul class="links">
-            <li class="link current">
+            <li class="link">
                 <a href="/views/index.htm">home</a>
             </li>
-            <li class="link">
+            <li class="link current">
                 <a href="/views/posts.htm">posts</a>
             </li>
             <li class="link">
@@ -123,87 +125,86 @@
 
 
     <div class="hero">
-        <div class="date">04/feburary/2021</div>
+        <h2>Date posted</h2>
     </div>
 
     <main>
         <div class="content">
+
+            <div class="container">
+                <div class="post">
+                    <div class="post-title">
+                        This is the title
+                    </div>
+                    <div class="post-tags">
+                        <button class="post-tag">svelte</button>
+                        <button class="post-tag">react</button>
+                        <button class="post-tag">vue</button>
+                        <button class="post-tag">angular</button>
+                    </div>
+                    <div class="post-punch-line">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque eaque ipsa tenetur vitae provident, ab sit error cupiditate, praesentium, ducimus commodi voluptatibus. Consequatur facilis quidem dolore, dolor corrupti quos delectus!
+                    </div>
+                    <div class="flex">
+                            <div class="date">
+                                <i>3/31/21</i>
+                            </div>
+                            <div class="read-more">
+                                <a href="#">read-more</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="post">
+                    <div class="post-title">
+                        This is the title
+                    </div>
+                    <div class="post-tags">
+                        <button class="post-tag">svelte</button>
+                        <button class="post-tag">react</button>
+                        <button class="post-tag">vue</button>
+                        <button class="post-tag">angular</button>
+                    </div>
+                    <div class="post-punch-line">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque eaque ipsa tenetur vitae provident, ab sit error cupiditate, praesentium, ducimus commodi voluptatibus. Consequatur facilis quidem dolore, dolor corrupti quos delectus!
+                    </div>
+                    <div class="flex">
+                            <div class="date">
+                                <i>3/31/21</i>
+                            </div>
+                            <div class="read-more">
+                                <a href="#">read-more</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="post">
+                    <div class="post-title">
+                        This is the title
+                    </div>
+                    <div class="post-tags">
+                        <button class="post-tag">svelte</button>
+                        <button class="post-tag">react</button>
+                        <button class="post-tag">vue</button>
+                        <button class="post-tag">angular</button>
+                    </div>
+                    <div class="post-punch-line">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque eaque ipsa tenetur vitae provident, ab sit error cupiditate, praesentium, ducimus commodi voluptatibus. Consequatur facilis quidem dolore, dolor corrupti quos delectus!
+                    </div>
+                    <div class="flex">
+                            <div class="date">
+                                <i>3/31/21</i>
+                            </div>
+                            <div class="read-more">
+                                <a href="#">read-more</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
             
-            <div class="container">
-                <div class="post">
-                    <div class="post-title">
-                        This is the title
-                    </div>
-                    <div class="post-tags">
-                        <button class="post-tag">svelte</button>
-                        <button class="post-tag">react</button>
-                        <button class="post-tag">vue</button>
-                        <button class="post-tag">angular</button>
-                    </div>
-                    <div class="post-punch-line">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque eaque ipsa tenetur vitae provident, ab sit error cupiditate, praesentium, ducimus commodi voluptatibus. Consequatur facilis quidem dolore, dolor corrupti quos delectus!
-                    </div>
-                    <div class="flex">
-                            <div class="date">
-                               <i>3/31/21</i>
-                            </div>
-                            <div class="read-more">
-                                <a href="#">read-more</a>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="post">
-                    <div class="post-title">
-                        This is the title
-                    </div>
-                    <div class="post-tags">
-                        <button class="post-tag">svelte</button>
-                        <button class="post-tag">react</button>
-                        <button class="post-tag">vue</button>
-                        <button class="post-tag">angular</button>
-                    </div>
-                    <div class="post-punch-line">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque eaque ipsa tenetur vitae provident, ab sit error cupiditate, praesentium, ducimus commodi voluptatibus. Consequatur facilis quidem dolore, dolor corrupti quos delectus!
-                    </div>
-                    <div class="flex">
-                            <div class="date">
-                               <i>3/31/21</i>
-                            </div>
-                            <div class="read-more">
-                                <a href="#">read-more</a>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="post">
-                    <div class="post-title">
-                        This is the title
-                    </div>
-                    <div class="post-tags">
-                        <button class="post-tag">svelte</button>
-                        <button class="post-tag">react</button>
-                        <button class="post-tag">vue</button>
-                        <button class="post-tag">angular</button>
-                    </div>
-                    <div class="post-punch-line">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque eaque ipsa tenetur vitae provident, ab sit error cupiditate, praesentium, ducimus commodi voluptatibus. Consequatur facilis quidem dolore, dolor corrupti quos delectus!
-                    </div>
-                    <div class="flex">
-                            <div class="date">
-                               <i>3/31/21</i>
-                            </div>
-                            <div class="read-more">
-                                <a href="#">read-more</a>
-                            </div>
-                        </div>
-                </div>
-            </div>
-
         </div>
-
     </main>
     <footer></footer>
     <script src="/public/js/main.js"></script>

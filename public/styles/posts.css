@@ -1,0 +1,33 @@
+.posts {
+    padding: 0%;
+    list-style-type: none;
+}
+.post {
+    background-color: rgb(226, 226, 226);
+    margin: 0px;
+    height: 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+.post:hover {
+    background-color: rgb(196, 196, 196);
+}
+.post:nth-child(even) {
+    background-color: rgb(209, 209, 209);
+}
+.post a {
+    text-decoration: none;
+    color: black;
+    text-transform: capitalize;
+    font-weight: 550;
+    width: calc(100% - 90px);
+    display: block;
+    padding: 5px 20px;
+}
+.post-badge {
+    float: right;
+    color: white;
+    background-color: black;
+    margin: 0px 5px;
+}

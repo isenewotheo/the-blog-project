@@ -141,6 +141,7 @@ div#close-search-panel {
     width: 25px;
     margin: 5px 15px;
     fill: white;
+    cursor: pointer;
 }
 .auth {
     margin-right: 5px;

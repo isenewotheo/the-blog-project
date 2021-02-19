@@ -1,0 +1,33 @@
+.tags {
+    padding: 0%;
+    list-style-type: none;
+}
+.tag {
+    background-color: rgb(226, 226, 226);
+    margin: 0px;
+    height: 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+.tag:hover {
+    background-color: rgb(196, 196, 196);
+}
+.tag:nth-child(even) {
+    background-color: rgb(209, 209, 209);
+}
+.tag a {
+    text-decoration: none;
+    color: black;
+    text-transform: capitalize;
+    font-weight: 550;
+    width: calc(100% - 90px);
+    display: block;
+    padding: 12px 20px;
+}
+.tag-badge {
+    float: right;
+    color: white;
+    background-color: black;
+    margin: 10px 5px;
+}
