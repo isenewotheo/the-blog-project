@@ -1,5 +1,19 @@
 GET http://localhost:8080/api/users HTTP/1.1
 
+### POSTS
+GET http://localhost:8080/posts HTTP/1.1
+
+
+### POST 
+GET http://localhost:8080/post/id HTTP/1.1
+
+
+### TAGS
+GET http://localhost:8080/tags HTTP/1.1
+
+
+
+
 ###
 GET http://localhost:8080/api/users/search?username=lake HTTP/1.1
 

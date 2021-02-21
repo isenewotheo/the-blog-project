@@ -5,12 +5,36 @@ const path = require('path');
 const PORT = process.env.PORT;
 let api = require('./api-routes');
 
+function getFile(path) {
+    return path.join(__dirname, path)
+}
+console.log(getFile('kd'))
+
 app.use('/api', api);
 app.use('/public', express.static(path.join(__dirname, './public')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './test.html'));
+    res.sendFile(getFile('./test.html'));
 });
+
+
+app.get('/post/:id', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/post.htm'));
+});
+
+app.get('/posts', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/posts.htm'));
+});
+
+
+app.get('/tags', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/tags.htm'));
+});
+
+
+
+
+
 app.get('/about', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/about.htm'));
 });

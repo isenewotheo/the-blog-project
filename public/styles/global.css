@@ -45,14 +45,16 @@ button.badge {
 
 .hero h2 {
     font-weight: lighter;
+    width: 100%;
     text-align: center;
 }
 .hero {
     color: white;
     background-color: var(--primary);
-    width: 100%;
+    text-align: center;
+    width: calc(100% - 250px);
     position: relative;
-    margin: 60px 0px  0px  0px;
+    margin: 60px 0px  0px  250px;
     padding: 10px;
     box-sizing: border-box;
     min-height: 30px;
@@ -114,7 +116,9 @@ main {
     margin: 10px 0px;
 }
 .date {
+    font-weight: bold;
     font-size: 0.9rem;
+    color: rgb(58, 58, 58);
 }
 .read-more a {
     color: var(--blue);
@@ -287,8 +291,13 @@ main {
         width: 200px;
         left: 0px;
     }
-    main, .hero {
-        margin-left: 205px;
+    main{
+        width: calc(100% - 200px);
+        margin-left: 200px;
+    }
+    .hero {
+        width: calc(100% - 200px);
+        margin-left: 200px;
     }
 }
 @media (max-width: 700px) {
@@ -305,10 +314,8 @@ main {
     .side-auth {
         display: block;
     }
-    .hero {
-        margin-left: 0px;
-    }
-    main {
+    main, .hero {
+        width: 100%;
         margin-left: 0%;
     }
     .container {

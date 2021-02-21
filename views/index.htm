@@ -11,6 +11,66 @@
     <link rel="stylesheet" href="/public/styles/footer.css">
     <link rel="stylesheet" href="/public/styles/global.css">
     <style>
+        .hero {
+            height: 300px;
+            padding: 50px;
+        }
+        .hero-box {
+            max-width: 700px;
+            margin: auto;
+        }
+        .hero h2 {
+            width: 200px;
+        }
+        .designed-box:hover {
+            animation-play-state: paused;
+        }
+        .designed-box {
+            background-color: whitesmoke;
+            width: 150px;
+            height: 150px;
+            border-radius: 15px;
+            transform: rotateZ(40deg);
+            animation-name: rotate-it;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: cubic-bezier(0.075, 0.82, 0.365, 1.5);
+            animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+        @keyframes rotate-it {
+            0% {
+                transform: rotateZ(45deg);
+            }
+            100% {
+                transform: rotateZ(220deg);
+            }
+        }
+        .hero .auth {
+            margin: auto;
+            margin-top: 40px;
+        }
+
+/*  -----------  media queries-----------      */
+        @media screen and (max-width: 475px) {
+            .hero {
+                padding: 30px;
+            }
+            .hero h2 {
+                width: 180px;
+                margin-right: -25px;
+            }
+        }
+        @media screen and (max-width: 395px) {
+            .hero {
+                height: 250px;
+                padding: 30px;
+            }
+            .designed-box {
+                width: 120px;
+                height: 120px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -123,7 +183,18 @@
 
 
     <div class="hero">
-        <div class="date">04/feburary/2021</div>
+        <div class="flex hero-box">
+            <div class="designed-box">
+                <div class="designed-box">
+                    <div class="designed-box-text"></div>
+                </div>
+            </div>
+            <h2>welcome to Dare Dev Blog</h2>
+        </div>
+        <div class="auth side-auth">
+                <button class="nav-btn launch-modal" data-targetModal="login-modal">Login</button>
+                <button class="nav-btn launch-modal" data-targetModal="signup-modal">Signup</button>
+            </div>
     </div>
 
     <main>
