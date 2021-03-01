@@ -29,14 +29,13 @@
             background-color: whitesmoke;
             width: 150px;
             height: 150px;
-            border-radius: 15px;
+            border-radius: 25px;
             transform: rotateZ(40deg);
             animation-name: rotate-it;
             animation-duration: 2s;
             animation-iteration-count: infinite;
             animation-direction: alternate;
             animation-timing-function: cubic-bezier(0.075, 0.82, 0.365, 1.5);
-            animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
         }
         @keyframes rotate-it {
             0% {
@@ -52,7 +51,7 @@
         }
 
 /*  -----------  media queries-----------      */
-        @media screen and (max-width: 475px) {
+        @media (max-width: 475px) {
             .hero {
                 padding: 30px;
             }
@@ -61,14 +60,48 @@
                 margin-right: -25px;
             }
         }
-        @media screen and (max-width: 395px) {
+        @media (max-width: 395px) {
             .hero {
                 height: 250px;
                 padding: 30px;
             }
             .designed-box {
+                border-radius: 15px;
                 width: 120px;
                 height: 120px;
+            }
+        }
+        @media (max-width: 355px) {
+            .designed-box {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        @media (max-width: 325px) {
+            .designed-box {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        @media (max-width: 320px) {
+            .hero {
+                height: 330px;
+            }
+            .hero-box {
+                flex-wrap: wrap;
+                flex-direction: column-reverse;
+            }
+            .box {
+                width: 100px;
+                height: 80px;
+                margin: auto;
+            }
+            .hero-box h2 {
+                width: auto;
+                margin: 0px auto  30px auto;
+            }
+            .auth {
+                width: auto;
             }
         }
     </style>
@@ -167,16 +200,16 @@
         </div>
         <ul class="links">
             <li class="link current">
-                <a href="/views/index.htm">home</a>
+                <a href="/">home</a>
             </li>
             <li class="link">
-                <a href="/views/posts.htm">posts</a>
+                <a href="/posts">posts</a>
             </li>
             <li class="link">
-                <a href="/views/tags.htm">tags</a>
+                <a href="/tags">tags</a>
             </li>
             <li class="link">
-                <a href="/views/about.htm">about</a>
+                <a href="/about">about</a>
             </li>
         </ul>
     </div>
@@ -184,9 +217,9 @@
 
     <div class="hero">
         <div class="flex hero-box">
-            <div class="designed-box">
+            <div class="box">
                 <div class="designed-box">
-                    <div class="designed-box-text"></div>
+                    <div class="designed-box"></div>
                 </div>
             </div>
             <h2>welcome to Dare Dev Blog</h2>

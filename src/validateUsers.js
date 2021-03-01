@@ -1,6 +1,6 @@
 const Joi = require('joi');
 const {loginSchema, signupSchema} = require('../joi-schemas/loginSignUpSchema');
-const {patchUserNameSchema, patchEmailSchema, patchPasswordSchema} = require('../joi-schemas/patchSchema');
+const {patchUserNameSchema, patchEmailSchema, patchPasswordSchema} = require('../joi-schemas/usersPatchSchema');
 
 async function validateSignUp(req, res, next) {
     let users = req.body;

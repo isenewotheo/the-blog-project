@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bc = require('bcrypt');
-const {QueryUsers} = require('../db/usersQuery')
+const QueryUsers = require('../db/usersQuery')
 const db = new QueryUsers();
 const {validateSignUp, validatePatchPasswordSchema, validatePatchEmailSchema, validatePatchUserNameSchema} = require('../src/validateUsers')
 router.use(express.json());

@@ -1,11 +1,41 @@
 GET http://localhost:8080/api/users HTTP/1.1
 
 ### POSTS
-GET http://localhost:8080/posts HTTP/1.1
+GET http://localhost:8080/api/posts HTTP/1.1
+
+### POST
+GET http://localhost:8080/api/posts/603853009059d60dd413b469 HTTP/1.1
+
+
+### delete POSTS
+DELETE  http://localhost:8080/api/posts/6038318e79ea500dcc585e20 HTTP/1.1
+
+
+### post POSTS
+POST http://localhost:8080/api/posts HTTP/1.1
+Content-Type: application/json
+
+    {
+        "author": "dare",
+        "title": "Svelte is the new BAD BOY in town",
+        "tags": ["svelte"],
+        "body": "lorem ispskdj kjfkdfkdfjkdfdfdf dkfjdkfdkfkfjdklfdfkdkfdkffdf",
+        "completed": true
+    }
+
+###
+PATCH  http://localhost:8080/api/posts/603853009059d60dd413b469 HTTP/1.1
+Content-Type: application/json
+
+    {
+        "tags": ["svelte"],
+        "body": "Svelte is better than react",
+        "title": "Svelte is the new BAD BOY in town"
+    }
 
 
 ### POST 
-GET http://localhost:8080/post/id HTTP/1.1
+GET http://localhost:8080/posts/id HTTP/1.1
 
 
 ### TAGS
@@ -55,6 +85,6 @@ Content-Type: application/json
 
 {
     "userName": "richie",
-    "email": "richie@mail.com",
+    "email": "ric@mail.com",
     "password": "dkdjf"
 }

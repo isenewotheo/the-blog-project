@@ -2,8 +2,6 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const path = require('path');
 const users = require(path.join(__dirname, './models/schema/usersSchema'));
-const posts = require(path.join(__dirname, './models/schema/postsSchema'));
-const comments = require(path.join(__dirname, './models/schema/commentsSchema'));
 mongoose.connect(process.env.DATA_BASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -120,13 +118,5 @@ class QueryUsers {
         }
     }
 }
-class QueryPosts {
-}
-class QueryComments {
-}
 
-module.exports = {
-    QueryUsers,
-    QueryPosts,
-    QueryComments
-}
+module.exports = QueryUsers
