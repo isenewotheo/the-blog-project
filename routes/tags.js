@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const dbQuery = require('../db/usersQuery')
+const dbQuery = require('../db/postsQuery');
+const db = new dbQuery()
 
 
 function getPage(pathTo) {
@@ -9,12 +10,14 @@ function getPage(pathTo) {
 }
 
 
-router.get('/', (req, res) => {
-    res.sendFile(getPage('tags.htm'));
+router.get('/', async (req, res) => {
+    let posts = await db.getTags();
+    res.json(posts);
 });
 
-router.get('/:id', (req, res) => {
-    res.sendFile(getPage('tags.htm'));
+router.get('/:tag', async (req, res) => {
+    let posts = await db.getTagPosts(req.params.tag)
+    res.json(posts);
 });
 
 

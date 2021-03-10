@@ -1,14 +1,62 @@
-GET http://localhost:8080/api/users HTTP/1.1
+
+### TAGS
+GET http://localhost:8080/api/tags HTTP/1.1
+
+
+### TAGS
+GET http://localhost:8080/api/tags/vue HTTP/1.1
+
+
+### COMMENTS
+GET http://localhost:8080/api/comments HTTP/1.1
+
+
+### COMMENTS
+GET http://localhost:8080/api/comments/postid/60384e052d9e77080cdaf717 HTTP/1.1
+
+
+### COMMENTS
+GET http://localhost:8080/api/comments/6046c3109cc7ea109c9f8d44 HTTP/1.1
+
+
+### COMMENTS
+DELETE http://localhost:8080/api/comments/6046b9cf08e1ad03c87cca91 HTTP/1.1
+
+### COMMENTS
+PATCH http://localhost:8080/api/comments/6046c3109cc7ea109c9f8d44 HTTP/1.1
+Content-Type: application/json
+
+{
+
+    "body": "he comment"
+}
+
+### COMMENTS
+POST http://localhost:8080/api/comments HTTP/1.1
+Content-Type: application/json
+
+{
+    "userID": "6013d6e81436bf0994d68d29",
+    "postID": "60384e052d9e77080cdaf717",
+    "body": "this is the Body of the comment"
+}
+
 
 ### POSTS
 GET http://localhost:8080/api/posts HTTP/1.1
 
+
+### POSTS
+GET http://localhost:8080/api/posts/date/2021-02-25 HTTP/1.1
+### POSTS
+GET http://localhost:8080/api/posts/date HTTP/1.1
+
 ### POST
-GET http://localhost:8080/api/posts/603853009059d60dd413b469 HTTP/1.1
+GET http://localhost:8080/api/posts/60384e052d9e77080cdaf717 HTTP/1.1
 
 
 ### delete POSTS
-DELETE  http://localhost:8080/api/posts/6038318e79ea500dcc585e20 HTTP/1.1
+DELETE  http://localhost:8080/api/posts/60384df22d4f7504ac2f56b5 HTTP/1.1
 
 
 ### post POSTS
@@ -16,33 +64,29 @@ POST http://localhost:8080/api/posts HTTP/1.1
 Content-Type: application/json
 
     {
-        "author": "dare",
-        "title": "Svelte is the new BAD BOY in town",
-        "tags": ["svelte"],
-        "body": "lorem ispskdj kjfkdfkdfjkdfdfdf dkfjdkfdkfkfjdklfdfkdkfdkffdf",
+        "author": "Jacob",
+        "title": "30BG is my best squad",
+        "tags": ["30BG"],
+        "body": "davido leader of the 30BG squad lorem idsps",
         "completed": true
     }
 
 ###
-PATCH  http://localhost:8080/api/posts/603853009059d60dd413b469 HTTP/1.1
+PATCH  http://localhost:8080/api/posts/60384e052d9e77080cdaf717 HTTP/1.1
 Content-Type: application/json
 
     {
-        "tags": ["svelte"],
+        "tags": ["30BG"],
         "body": "Svelte is better than react",
-        "title": "Svelte is the new BAD BOY in town"
+        "title": "30BG guys are here with svelte"
     }
 
 
 ### POST 
 GET http://localhost:8080/posts/id HTTP/1.1
 
-
-### TAGS
-GET http://localhost:8080/tags HTTP/1.1
-
-
-
+### USERS
+GET http://localhost:8080/api/users HTTP/1.1
 
 ###
 GET http://localhost:8080/api/users/search?username=lake HTTP/1.1

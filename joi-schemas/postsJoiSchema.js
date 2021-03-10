@@ -16,5 +16,8 @@ const postsSchema = Joi.object({
     completed: Joi.boolean(),
 })
 
+const postDateSchema = Joi.object({
+    date: Joi.date()
+})
 
-module.exports = postsSchema;
+module.exports = {postsSchema, postDateSchema};

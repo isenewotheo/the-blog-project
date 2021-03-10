@@ -1,30 +1,52 @@
 const express = require('express');
 const router = express.Router();
-const dbQuery = require('../db/usersQuery')
+const dbQuery = require('../db/commentsQuery');
+const db = new dbQuery();
+const {validateComment, validateUpdateComment} = require('../src/validateComments');
 
-// Get all users
-router.get('/users', (req, res) => {
+router.use(express.json());
+
+// Get all comment from a post    ////////////////////////////////////
+router.get('/', async (req, res) => {
+    let comments = await db.getcom();
+    console.log(comments);
+    res.json(comments);
 });
 
 
-// Add new user
-router.post('/users', (req, res) => {
+// Get all comment from a post    ////////////////////////////////////
+router.get('/postid/:postID', async (req, res) => {
+    let comments = await db.getComments(req.params.postID);
+    res.json(comments);
 });
 
 
-// Get a user
-router.get('/user/id', (req, res) => {
+// Get a comment         ////////////////////////////////////
+router.get('/:commentID', async (req, res) => {
+    let comment = await db.getComment(req.params.commentID);
+    res.json(comment);
 });
 
-// Edit a user
-router.patch('/users/:id', (req, res) => {
+// Add new comment      ////////////////////////////////////
+router.post('/', validateComment, async (req, res) => {
+    req.comment.date = Date.now();
+    let result = await db.addComment(req.comment);
+    res.json(result);
 });
 
-// Remove a user
-router.delete('/users/:id', (req, res) => {
+// update a comment     ////////////////////////////////////
+router.patch('/:id', validateUpdateComment, async (req, res) => {
+    let result = await db.updateComment(req.params.id, req.comment);
+    res.json(result);
 });
 
 
+
+// Delete a comment     ////////////////////////////////////
+router.delete('/:id', async (req, res) => {
+    let result = await db.deleteComment(req.params.id);
+    res.json(result);
+});
 
 
 module.exports = router

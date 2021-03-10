@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 const QueryPosts = require('../db/postsQuery')
 const db = new QueryPosts();
-const {validatePost} = require('../src/validatePosts');
+const {validatePost, validatePostDate} = require('../src/validatePosts');
 
 router.use(express.json());
 
@@ -12,31 +12,54 @@ function getPage(pathTo) {
 }
 
 
-// Get all 
+// Get all ////////////////////////////////////////////////////////////////////////
 router.get('/', async (req, res) => {
     let posts = await db.getPosts();
     res.json(posts);
 });
 
+// Get posts by date//////////////////////////////////////////////////////////////////
+router.get('/date', async (req, res) => {
+    let dates = await db.getPostsDates();
+    res.json(dates);
+});
 
-// Get one
+
+// Get one////////////////////////////////////////////////////////////////////////
 router.get('/:id', async (req, res) => {
     let post = await db.getPost(req.params.id)
-    res.json(post);
+    if (post === null) {
+        res.send('404');
+    } else {
+        res.json(post);
+    }
 });
 
-// Get posts in a day
-router.get('/date/:date', (req, res) => {
-    res.sendFile(getPage('post.htm'));
+
+
+// Get posts in a day/////////////////////////////////////////////////////////////////
+router.get('/date/:date', validatePostDate, async (req, res) => {
+    let data = await db.getPostsByDate(req.date);
+    // console.log(data);
+    if (data === 'error') {
+        return res.status(400);
+    }
+     res.json(data);
 });
 
-// Post one
+
+
+// Post one//////////////////////////////////////////////////////////////////////////
 router.post('/', validatePost, async (req, res) => {
     req.post.date = Date.now();
     let post = await db.addPost(req.post);
     res.json(post);
 });
 
+
+
+
+// PATCHING    //////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 // This function is use to update only the given field.
 // It works by getting the post with the ID and putting
@@ -48,12 +71,19 @@ router.post('/', validatePost, async (req, res) => {
 // empty field with the values from object "A"
 async function patching(req, res, next) {
     let post = await db.getPost(req.params.id);
+    if (post === null) {
+        return res.json({message: 'post with the id does not exit'});
+    }
     let replace = req.body;
-    post = post.toObject()
-    delete post._id;
-    delete post.date;
-    delete post.modified;
-    delete post.__v;
+    post = post.toObject();
+
+    // am removing this so the post will be valid to joi////
+    delete post._id;                                    ////
+    delete post.date;                                   ////
+    delete post.modified;                               ////
+    delete post.__v;                                    ////
+    ////////////////////////////////////////////////////////
+
     let newPost = {...post};
     let deleteable = {}
     for (const prop in post) {
@@ -77,7 +107,7 @@ async function patching(req, res, next) {
     next()
 }
 
-// Patch one
+// Patch one////////////////////////////////////////////////////////////////////////
 router.patch('/:id', patching, validatePost, async (req, res) => {
     req.post.modified = Date.now();
     let post = await db.updatePost(req.params.id, req.post);
