@@ -129,6 +129,6 @@ Content-Type: application/json
 
 {
     "userName": "richie",
-    "email": "ric@mail.com",
+    "email": "ric@a.com",
     "password": "dkdjf"
 }

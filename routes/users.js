@@ -29,7 +29,7 @@ router.post('/', validateSignUp, async (req, res) => {
 
     // add user to dataBase and send a successful message
     let newUser = await db.addUser(user);
-    res.status(201).json({message: 'Successful'});
+    res.status(201).json({message: 'Successful', user: newUser});
 });
 ////////////////////////////////////////////////////////////////////////////
 
