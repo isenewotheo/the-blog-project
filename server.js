@@ -6,16 +6,15 @@ const QueryPosts = require('./db/postsQuery')
 const db = new QueryPosts();
 const PORT = process.env.PORT;
 let api = require('./api-routes');
-// let posts = require('./routes/posts');
-const posts = require('./routes/posts');
 
-let tags = require('./routes/tags');
+app.use('/', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    next();
+});
 
 app.use('/api', api);
-// app.use('/posts', posts);
-// app.use('/tags', tags);
-app.use('/public', express.static(path.join(__dirname, './public')));
 
+app.use('/public', express.static(path.join(__dirname, './public')));
 
 
 function getPage(pathTo) {
@@ -34,8 +33,8 @@ app.get('/posts/:id', (req, res) => {
 });
 
 // Get posts in a day
-app.get('/post/date/:date', (req, res) => {
-    res.sendFile(getPage('post.htm'));
+app.get('/posts/date/:date', (req, res) => {
+    res.sendFile(getPage('postDate.htm'));
 });
 
 

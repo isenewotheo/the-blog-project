@@ -18,8 +18,24 @@ router.get('/', async (req, res) => {
     res.json(posts);
 });
 
+
+// Get posts for the homepage ////////////////////////////////////////////////////////////////////////
+router.get('/indexposts', async (req, res) => {
+    let posts = await db.getPosts();
+    res.json(posts);
+});
+
 // Get posts by date//////////////////////////////////////////////////////////////////
 router.get('/date', async (req, res) => {
+    let dates = await db.getPostsDates();
+    res.json(dates);
+});
+
+
+// search posts//////////////////////////////////////////////////////////////////
+router.get('/search', async (req, res) => {
+    let searchQuery = req.query.q;
+    console.log(searchQuery);
     let dates = await db.getPostsDates();
     res.json(dates);
 });
@@ -29,7 +45,7 @@ router.get('/date', async (req, res) => {
 router.get('/:id', async (req, res) => {
     let post = await db.getPost(req.params.id)
     if (post === null) {
-        res.send('404');
+         res.json({error: "error"});
     } else {
         res.json(post);
     }
@@ -39,12 +55,12 @@ router.get('/:id', async (req, res) => {
 
 // Get posts in a day/////////////////////////////////////////////////////////////////
 router.get('/date/:date', validatePostDate, async (req, res) => {
-    let data = await db.getPostsByDate(req.date);
+    let data = await db.getPostsByDate(req.params.date);
     // console.log(data);
     if (data === 'error') {
-        return res.status(400);
+        return res.status(400).json({error});
     }
-     res.json(data);
+    res.json(data);
 });
 
 

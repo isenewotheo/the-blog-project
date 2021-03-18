@@ -129,29 +129,102 @@
 
     <main>
         <div class="content">
-            <div class="post-title">
-                Lorem ipsum, dolor sit amet consectetur adipisicing.
+            <!-- <div class="post-title">
             </div>
             <div class="post-tags">
-                <button class="post-tag">react</button>
-                <button class="post-tag">react</button>
-                <button class="post-tag">react</button>
-                <button class="post-tag">react</button>
-                <button class="post-tag">react</button>
             </div>
-            <div class="date">
-                 18/feburary/2021
+            <div class="flex"> 
+                <div class="date">
+                    18/feburary/2021
+                </div>
+                <div class="author">
+                    dare
+                </div>
             </div>
             <hr>
             <div class="post-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aliquam libero voluptate. Vero, cumque? Optio animi porro, reiciendis aut tempora eligendi dicta vero commodi iusto unde similique ducimus reprehenderit beatae cupiditate, facere a veritatis quia exercitationem doloremque ratione perspiciatis nam, repellendus eum. Sunt eligendi, a esse suscipit debitis veniam perferendis quidem cum quasi unde enim ullam, quibusdam provident quae non accusantium quaerat modi nulla itaque odio excepturi eveniet cumque explicabo est. Nisi est animi ea, adipisci debitis voluptatem laudantium doloribus. Cumque, voluptatum saepe. Maiores minima quae quidem ex excepturi sequi magnam dolorum dolorem numquam unde ullam architecto, blanditiis officiis cum.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aliquam libero voluptate. Vero, cumque? Optio animi porro, reiciendis aut tempora eligendi dicta vero commodi iusto unde similique ducimus reprehenderit beatae cupiditate, facere a veritatis quia exercitationem doloremque ratione perspiciatis nam, repellendus eum. Sunt eligendi, a esse suscipit debitis veniam perferendis quidem cum quasi unde enim ullam, quibusdam provident quae non accusantium quaerat modi nulla itaque odio excepturi eveniet cumque explicabo est. Nisi est animi ea, adipisci debitis voluptatem laudantium doloribus. Cumque, voluptatum saepe. Maiores minima quae quidem ex excepturi sequi magnam dolorum dolorem numquam unde ullam architecto, blanditiis officiis cum.
-            </div>
+            </div> -->
         </div>
 
     </main>
     <footer></footer>
     <script src="/public/js/main.js"></script>
     <script src="/public/js/auth.js"></script>
+<script>
+    let content = document.getElementsByClassName('content')[0];
+    // let posts = document.getElementsByClassName('posts')[0];
+    let url = window.location.pathname.split('/')
+    let postID = url[url.length - 1]
+    async function fetchPosts() {
+        try {
+            let posts  = await fetch(`${base}/api/posts/${postID}`);
+            posts = await  posts.json();
+            if (posts.hasOwnProperty('error')) {
+                return 'error';
+            }else {
+                return posts;
+            }
+        } catch (error) {
+            console.log(error)
+            return 'error'
+        }
+        
+    }
+    function todate(date) {
+        d = new Date(date);
+        return d.toUTCString();
+    }
+    function tags(tagsArr) {        
+        if (tagsArr[0] !== null) {
+            let tags = [];
+            tagsArr.forEach(tag => {
+                tags.push(`<button class="post-tag">${tag}</button>`);
+            });
+            tags = tags.join(' ');
+            return tags;
+        }else {
+            return ''
+        }
+    }
+    
+    async function loadPost(_post) {
+        let post = await _post;
+        if (post === 'error') {
+            console.log('eror');
+            content.innerHTML = '<h1 class="four0four">404: Post not found</h1>';
+            return;
+        }
+        try {
+            let d = ` 
+                <div class="post-title">
+                    ${post.title}
+                </div>
+                <div class="post-tags">
+                    ${tags(post.tags)}
+                </div>
+                <div class="flex"> 
+                    <div class="date">
+                        ${todate(post.date)}
+                    </div>
+                    <div class="author">
+                        Author: ${post.author}
+                    </div>
+                </div>
+                <hr>
+                <div class="post-content">
+                    ${post.body}
+                </div>
+            `
+            content.innerHTML = d;
+            // console.log(post)
+        } catch (error) {
+            content.innerHTML = '<h1 class="four0four">404: Post not found</h1>';
+            console.log(error);
+        }
+
+    }
+    loadPost(fetchPosts());
+    console.log(base)
+</script>
 </body>
 </html>

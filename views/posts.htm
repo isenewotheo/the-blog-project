@@ -129,34 +129,46 @@
     <main>
 
         <ul class="posts">
-            <li class="post">
-                <a href="#">today</a>
-                <button class="post-badge">5</button>
-            </li>
-            <li class="post">
-                <a href="#">Yesterday post</a>
-                <button class="post-badge">5</button>
-            </li>
-            <li class="post">
-                <a href="#">3 days ago post</a>
-                <button class="post-badge">5</button>
-            </li>
-            <li class="post">
-                <a href="#">4 days ago post</a>
-                <button class="post-badge">5</button>
-            </li>
-            <li class="post">
-                <a href="#">5 days ago post</a>
-                <button class="post-badge">5</button>
-            </li>
-            <li class="post">
-                <a href="#">6 days ago post</a>
-                <button class="post-badge">5</button>
-            </li>
         </ul>
     </main>
     <footer></footer>
     <script src="/public/js/main.js"></script>
     <script src="/public/js/auth.js"></script>
+<script>
+
+    let posts = document.getElementsByClassName('posts')[0];
+    let url = `${base}/api/posts/date` 
+    async function fetchPosts(uri) {
+        try {
+            let posts  = await fetch(uri);
+            posts = await  posts.json();
+            return posts
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    
+    async function loadPost(_dates) {
+        try {
+            let dates = await _dates;
+            // console.log(dates)
+            dates.forEach(date => {
+                let d = new Date(date);
+                d = d.toUTCString();
+                d = d.slice(5, d.length-13);
+                posts.innerHTML += `
+                <li class="post" id="${date}">
+                    <a href='${base}/posts/date/${date}'>${d}</a>
+                </li>`
+            });
+            
+            
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+    loadPost(fetchPosts(url))
+</script>
 </body>
 </html>

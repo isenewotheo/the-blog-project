@@ -37,7 +37,7 @@ class QueryPosts {
 
     // gets all posts in a day////////////////////////////////////////////
     async getPostsByDate(_date){
-        // _date = new Date(_date + 'T00:00:00.000Z');
+        _date = new Date(_date + 'T00:00:00.000Z');
         let date = _date.toISOString();
         let lt = new Date(_date.setDate(_date.getDate() + 1));
         lt = lt.toISOString();
@@ -85,7 +85,17 @@ class QueryPosts {
             const newPost = await post.save();
             return newPost;
         } catch (error) {
-            return error.message;
+            return error;
+        }
+    }
+
+
+    // search for post title
+    async search(text){
+        try {
+            
+        } catch (error) {
+            return error
         }
     }
 

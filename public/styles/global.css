@@ -38,6 +38,7 @@ button.badge {
 }
 
 .flex {
+    flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
 }
@@ -58,6 +59,9 @@ button.badge {
     padding: 10px;
     box-sizing: border-box;
     min-height: 30px;
+}
+h1.four0four {
+    font-weight: 400;
 }
 
 /* main ////////////////////////////// */
@@ -116,6 +120,11 @@ main {
     margin: 10px 0px;
 }
 .date {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: rgb(58, 58, 58);
+}
+.author {
     font-weight: bold;
     font-size: 0.9rem;
     color: rgb(58, 58, 58);
@@ -203,13 +212,12 @@ main {
 
 
 /* ////////////login and signup modal */
+
 .auth-form {
     padding-top: 40px;
-    width: 300px;
+    width: 95%;
+    max-width: 400px;
     height: 500px;
-}
-.login{
-    height: 400px;
 }
 .auth-form button.submit {
     background-color: var(--primary);
@@ -231,6 +239,7 @@ main {
 }
 .login {
     display: none;
+    height: 400px;
 }
 .signup{
     display: none;
@@ -391,5 +400,8 @@ main {
         margin-left: 60px;
     }
 }
-
+/* .auth {
+    display: none;
+    background-color: aqua;
+} */
 

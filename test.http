@@ -67,7 +67,8 @@ Content-Type: application/json
         "author": "Jacob",
         "title": "30BG is my best squad",
         "tags": ["30BG"],
-        "body": "davido leader of the 30BG squad lorem idsps",
+        "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium i
+        llo sala iste perferendis, reiciendis quo, expedita nostrum dignissimos sequi voluptates accusamus fugiat molestiae numquam!",
         "completed": true
     }
 
@@ -76,14 +77,11 @@ PATCH  http://localhost:8080/api/posts/60384e052d9e77080cdaf717 HTTP/1.1
 Content-Type: application/json
 
     {
-        "tags": ["30BG"],
-        "body": "Svelte is better than react",
-        "title": "30BG guys are here with svelte"
+        "tags": ["svelte", "react"],
+        "body": "Svelte is better than react Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium illo sapiente beatae, non laborum eum autem expedita deserunt tenetur corrupti animi officiis laudantium totam, ab quam quisquam magni voluptas blanditiis aperiam. Nam quisquam incidunt beatae dolorum? Saepe, vitae similique, mollitia vel voluptatum quis recusandae praesentium natus excepturi possimus expedita omnis ipsa tempora consequuntur dolorum, reiciendis doloribus placeat odit nam repellendus fugiat sequi quae at. Tenetur doloribus officiis distinctio sint fugit cum laboriosam voluptate, sit hic dolor id sequi est nemo rem, nesciunt eum quas accusamus quia recusandae voluptatem voluptatum minima consequuntur. Qui unde sequi rerum nostrum aut consectetur. Expedita, qui, incidunt minima voluptatum consequuntur tempore quod libero earum tempora labore deserunt aliquid sint dignissimos ipsum harum distinctio atque, quibusdam impedit sit adipisci aliquam ducimus maiores quam. Harum tempora quia velit placeat suscipit esse aliquam explicabo quo dolores, optio nobis, recusandae, error itaque nihil porro animi quam amet quos cumque temporibus unde iste deleniti cum? Laudantium ut debitis aut, qui voluptatum iusto repudiandae sint ducimus fugit repellendus hic consequatur corporis beatae molestiae architecto totam rem veniam velit quos? Laudantium fugiat doloribus assumenda esse sit nostrum sequi suscipit dignissimos? Dolorum ipsam vitae nihil doloremque voluptates dicta assumenda qui dignissimos fugit animi ex excepturi saepe cum quasi odit vel, aperiam corrupti aliquid nisi mollitia earum omnis debitis nemo. Eius nam, cumque, omnis totam ducimus ipsum, quaerat reiciendis quia necessitatibus quas optio facilis animi id! Quisquam eaque dolor rerum voluptatem itaque possimus labore natus delectus, cumque, explicabo veniam, quae et dolores qui earum repudiandae veritatis. Quos, similique quasi. Vel placeat vitae quidem dolore voluptates tempora. Dolores assumenda deleniti excepturi molestiae voluptatem! Tenetur quod eveniet, cupiditate ratione fugiat error nostrum numquam libero. Ipsam neque, laudantium ea eveniet mollitia numquam, obcaecati similique libero sit nesciunt dignissimos rerum illo, vero ad reprehenderit voluptates esse ab cumque. Aliquam, a, assumenda voluptatum quas maxime laboriosam temporibus sint laudantium autem reiciendis nam quo magnam quaerat quia sequi quidem ipsa sed saepe dicta amet vero numquam fuga dolorem? Beatae ex odio sint dolores tempora ducimus, est alias hic nostrum cupiditate ut aspernatur sed sapiente dignissimos autem assumenda doloribus suscipit. Delectus dignissimos illum, quos unde hic quam cumque temporibus facilis nihil, eaque veniam exercitationem fugiat aliquam consequatur quidem itaque possimus qui aspernatur nam. Voluptate, libero. Dolorum, adipisci repellat minima doloremque labore nobis rem maiores nulla animi sequi. Commodi nulla iste perferendis, reiciendis quo, expedita nostrum dignissimos sequi voluptates accusamus fugiat molestiae numquam! ",
+        "title": "The svelte team are here again"
     }
 
-
-### POST 
-GET http://localhost:8080/posts/id HTTP/1.1
 
 ### USERS
 GET http://localhost:8080/api/users HTTP/1.1

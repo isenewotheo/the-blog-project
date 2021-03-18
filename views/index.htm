@@ -233,78 +233,27 @@
     <main>
         <div class="content">
             
-            <div class="container">
+            <!-- <div class="container">
                 <div class="post">
                     <div class="post-title">
-                        This is the title
+
                     </div>
                     <div class="post-tags">
-                        <button class="post-tag">svelte</button>
-                        <button class="post-tag">react</button>
-                        <button class="post-tag">vue</button>
-                        <button class="post-tag">angular</button>
+                        
                     </div>
                     <div class="post-punch-line">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque eaque ipsa tenetur vitae provident, ab sit error cupiditate, praesentium, ducimus commodi voluptatibus. Consequatur facilis quidem dolore, dolor corrupti quos delectus!
+                        
                     </div>
                     <div class="flex">
                             <div class="date">
-                               <i>3/31/21</i>
+
                             </div>
                             <div class="read-more">
                                 <a href="#">read-more</a>
                             </div>
                         </div>
                 </div>
-            </div>
-            <div class="container">
-                <div class="post">
-                    <div class="post-title">
-                        This is the title
-                    </div>
-                    <div class="post-tags">
-                        <button class="post-tag">svelte</button>
-                        <button class="post-tag">react</button>
-                        <button class="post-tag">vue</button>
-                        <button class="post-tag">angular</button>
-                    </div>
-                    <div class="post-punch-line">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque eaque ipsa tenetur vitae provident, ab sit error cupiditate, praesentium, ducimus commodi voluptatibus. Consequatur facilis quidem dolore, dolor corrupti quos delectus!
-                    </div>
-                    <div class="flex">
-                            <div class="date">
-                               <i>3/31/21</i>
-                            </div>
-                            <div class="read-more">
-                                <a href="#">read-more</a>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="post">
-                    <div class="post-title">
-                        This is the title
-                    </div>
-                    <div class="post-tags">
-                        <button class="post-tag">svelte</button>
-                        <button class="post-tag">react</button>
-                        <button class="post-tag">vue</button>
-                        <button class="post-tag">angular</button>
-                    </div>
-                    <div class="post-punch-line">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque eaque ipsa tenetur vitae provident, ab sit error cupiditate, praesentium, ducimus commodi voluptatibus. Consequatur facilis quidem dolore, dolor corrupti quos delectus!
-                    </div>
-                    <div class="flex">
-                            <div class="date">
-                               <i>3/31/21</i>
-                            </div>
-                            <div class="read-more">
-                                <a href="#">read-more</a>
-                            </div>
-                        </div>
-                </div>
-            </div>
+            </div> -->
 
         </div>
 
@@ -312,5 +261,20 @@
     <footer></footer>
     <script src="/public/js/main.js"></script>
     <script src="/public/js/auth.js"></script>
+    <script src="/public/js/fetchAndFormat.js"></script>
+<script>
+    let content = document.getElementsByClassName('content')[0];
+
+    let helper = new FetchHelper();
+    let url = `${base}/api/posts/indexposts`;
+
+    (async function () {
+        let post = await helper.getPosts(url);
+        let lp = await helper.loadPosts(post);
+        content.innerHTML = lp;
+        // console.log(post)
+    })()
+    
+</script>
 </body>
 </html>

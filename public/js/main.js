@@ -3,6 +3,7 @@
 // onclick get the target modal
 // if it exist launch modal
 // else do nothing
+let base = 'http://localhost:8080';
 class Modal {
     constructor(modalElement, targetElements){
         this.modalElement = modalElement
@@ -107,8 +108,8 @@ searchList.addEventListener('blur', () => {
 });
 function searchPosts(searchText) {
     let posts;
-    fetch(`/api/posts/s?${searchText}`)
-        .then(response => response.json())
+    fetch(`/api/posts/search?q=${searchText}`)
+        .then(response => console.log(response))
         .then(result => console.log(result))
         .catch(err => console.error(err));
 }

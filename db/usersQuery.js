@@ -152,7 +152,7 @@ class QueryUsers {
     }
 }
 
-let q = new QueryUsers();
-q.getUserByUserName('lake').then(res => console.log(res))
+// let q = new QueryUsers();
+// q.getUserByUserName('lake').then(res => console.log(res))
 
 module.exports = QueryUsers
